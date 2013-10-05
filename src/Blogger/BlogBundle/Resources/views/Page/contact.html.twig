@@ -9,6 +9,12 @@
 
 <p>Want to contact us?</p>
 
+{% for flashMessage in app.session.flashbag.get('blogger-notice') %}
+<div class="blogger-notice">
+  {{ flashMessage }}
+</div>
+{% endfor %}
+
 <form method="post" action="{{ path('blogger_contact') }}" {{ form_enctype(form) }} class="blogger">
   {{ form_errors(form) }}
 
