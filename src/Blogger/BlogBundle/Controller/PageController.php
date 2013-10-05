@@ -9,13 +9,24 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class PageController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="blogger_blog")
      * @Template()
      */
     public function indexAction()
     {
       return array(
-                   'notaname' => 'Not a name',
+                   'notaname' => 'not a name',
+                   );
+    }
+
+    /**
+     * @Route("/about", name="blogger_about")
+     * @Template()
+     */
+    public function aboutAction()
+    {
+      return array(
+                   'imahack' => 'isahack',
                    );
     }
 
