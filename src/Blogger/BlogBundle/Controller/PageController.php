@@ -12,23 +12,28 @@ use Blogger\BlogBundle\Entity\Enquiry;
 use Blogger\BlogBundle\Form\EnquiryType;
 
 /**
- * @Route("/page")
+ * @Route("/")
  */
 class PageController extends Controller
 {
     /**
-     * @Route("/", name="blogger_blog")
+     * @Route("/", name="page_index")
      * @Template()
      */
     public function indexAction()
     {
+      $em = $this->getDoctrine()->getManager();
+
+      $blogs = $em->getRepository('BloggerBlogBundle:Blog')
+        ->getLatestBlogs();
+
       return array(
-                   'notaname' => 'not a name',
+                   'blogs' => $blogs,
                    );
     }
 
     /**
-     * @Route("/about", name="blogger_about")
+     * @Route("/about", name="page_about")
      * @Template()
      */
     public function aboutAction()
@@ -39,7 +44,7 @@ class PageController extends Controller
     }
 
     /**
-     * @Route("/contact", name="blogger_contact")
+     * @Route("/contact", name="page_contact")
      * @Template()
      * @Method({"GET","POST"})
      */

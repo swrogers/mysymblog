@@ -15,7 +15,7 @@
 </div>
 {% endfor %}
 
-<form method="post" action="{{ path('blogger_contact') }}" {{ form_enctype(form) }} class="blogger">
+<form method="post" action="{{ path('page_contact') }}" {{ form_enctype(form) }} class="blogger">
   {{ form_errors(form) }}
 
   {{ form_row(form.name) }}
