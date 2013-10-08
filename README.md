@@ -7,5 +7,6 @@ h3: Differences between my version and the symblog version
 
 * I will be using annotations
 * Updated to use flashBag instead of setFlash
+* Moved "About" and "Contact" into their own "/page" uri
 
 [1]: http://tutorial.symblog.co.uk

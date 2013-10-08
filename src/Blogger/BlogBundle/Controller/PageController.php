@@ -11,6 +11,9 @@ use Sendio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Blogger\BlogBundle\Entity\Enquiry;
 use Blogger\BlogBundle\Form\EnquiryType;
 
+/**
+ * @Route("/page")
+ */
 class PageController extends Controller
 {
     /**
