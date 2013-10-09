@@ -77,4 +77,24 @@ class PageController extends Controller
                    'form' => $form->createView(),
                    );
     }
+
+    /**
+     * Handle the sidebar duties
+     * @Route("/sidebar", name="page_sidebar")
+     * @Template()
+     */
+    public function sidebarAction()
+    {
+      $em = $this->getDoctrine()->getManager();
+      
+      $tags = $em->getRepository('BloggerBlogBundle:Blog')
+        ->getTags();
+
+      $tagWeights = $em->getRepository('BloggerBlogBundle:Blog')
+        ->getTagWeights($tags);
+
+      return array(
+                   'tags' => $tagWeights,
+                   );
+    }
 }

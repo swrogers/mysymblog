@@ -1,0 +1,11 @@
+<section class="section">
+  <header>
+    <p class="tags">
+      {% for tag, weight in tags %}
+      <span class="weight-{{ weight }}">{{ tag }}</span>
+      {% else %}
+      <p>There are no tags</p>
+      {% endfor %}
+    </p>
+  </header>
+</section>
