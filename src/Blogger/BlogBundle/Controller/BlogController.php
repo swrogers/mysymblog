@@ -11,28 +11,28 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class BlogController extends Controller
 {
-    /**
-     * @Route("/{id}", requirements={"id" = "\d+"}, name="blog_show_by_id")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-      $em = $this->getDoctrine()->getManager();
+  /**
+   * @Route("/{id}/{slug}", requirements={"id" = "\d+"}, name="blog_show_by_id_slug")
+   * @Template()
+   */
+  public function showAction($id, $slug)
+  {
+    $em = $this->getDoctrine()->getManager();
+    
+    $blog = $em->getRepository('BloggerBlogBundle:Blog')->find($id);
+    
+    if(!$blog)
+      {
+        throw $this->createNotFoundException('Unable to find Blog post.');
+      }
 
-      $blog = $em->getRepository('BloggerBlogBundle:Blog')->find($id);
+    $comments = $em->getRepository('BloggerBlogBundle:Comment')
+      ->getCommentsForBlog($blog->getId());
 
-      if(!$blog)
-        {
-          throw $this->createNotFoundException('Unable to find Blog post.');
-        }
-
-      $comments = $em->getRepository('BloggerBlogBundle:Comment')
-        ->getCommentsForBlog($blog->getId());
-
-      return array(
-                   'blog' => $blog,
-                   'comments' => $comments,
-                   );
-    }
+    return array(
+                 'blog' => $blog,
+                 'comments' => $comments,
+                 );
+  }
 
 }
