@@ -82,6 +82,14 @@ class Blog
     $this->setUpdated(new \DateTime());
   }
 
+  /**
+   * to string
+   */
+  public function __toString()
+  {
+    return $this->getTitle();
+  }
+
 
     /**
      * Get id

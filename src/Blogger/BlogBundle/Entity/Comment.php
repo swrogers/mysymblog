@@ -1,6 +1,7 @@
 <?php
 
 namespace Blogger\BlogBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,6 +27,7 @@ class Comment
      * @var string
      *
      * @ORM\Column(name="user", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $user;
 
@@ -33,6 +35,7 @@ class Comment
      * @var string
      *
      * @ORM\Column(name="comment", type="text")
+     * @Assert\NotBlank()
      */
     private $comment;
 
