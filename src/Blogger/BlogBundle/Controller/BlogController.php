@@ -88,6 +88,68 @@ class BlogController extends Controller
                  'form' => $form->createView(),
                  );
   }
+   
+  /**
+   * Display a Blog post for editing
+   *
+   * @Route("/admin/{id}/{slug}/edit", requirements={"id" = "\d+"}, name="blog_post_edit")
+   * @Template("BloggerBlogBundle:Blog:new.html.twig")
+   * @Method("GET")
+   */
+  public function editAction(Request $request, $id, $slug)
+  {
+    $em = $this->getDoctrine()->getManager();
+
+    $blog = $em->getRepository('BloggerBlogBundle:Blog')->find($id);
+
+    if(!$blog)
+      {
+        throw $this->createNotFoundException('Unable to find Blog post.');
+      }
     
+    $form = $this->createForm(new BlogType(), $blog);
+    
+    return array(
+                 'form' => $form->createView(),
+                 );
+              
+  }
+
+  /**
+   * Updates a Blog post after submission
+   *
+   * @Route("/admin/{id}/{slug}/update", requirements={"id" = "\d+"}, name="blog_post_update")
+   * @Method("POST")
+   * @Template("BloggerBlogBundle:Blog:new.html.twig")
+   */
+  public function updateAction(Request $request, $id, $slug)
+  {
+    $em = $this->getDoctrine()->getManager();
+
+    $blog = $em->getRepository('BloggerBlogBundle:Blog')->find($id);
+
+    if(!$blog)
+      {
+        throw $this->createNotFoundException('Unable to find Blog post.');
+      }
+
+    $form = $this->createForm(new BlogType(), $blog);
+    $form->bind($request);
+
+    if($form->isValid())
+      {
+        $em->persist($blog);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('blog_show_by_id_slug', array(
+                                                                                'id' => $blog->getId(),
+                                                                                'slug' => $blog->getSlug(),
+                                                                                )));
+      }
+    
+    return array(
+                 'form' => $form->createView(),
+                 );
+  }
 
 }
