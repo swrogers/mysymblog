@@ -3,6 +3,10 @@
 {% block title %}{{ blog.title }}{% endblock %}
 
 {% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+<a href="{{ path('blog_post_edit', {'id': blog.id, 'slug': blog.slug} ) }}">Edit this post</a>
+{% endif %}
+
 <article class="blog">
   <header>
     <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>

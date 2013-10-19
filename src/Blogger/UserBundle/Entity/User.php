@@ -20,7 +20,7 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -35,6 +35,15 @@ class User extends BaseUser
      * @ORM\Column(name="lastName", type="string", length=255)
      */
     private $lastName;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Blogger\UserBundle\Entity\Group")
+     * @ORM\JoinTable(name="fos_user_user_group",
+                      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+                      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+                      )
+    */
+    protected $groups;
 
     public function __construct()
     {
@@ -105,5 +114,38 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+    /**
+     * Add groups
+     *
+     * @param \Blogger\UserBundle\Entity\Group $groups
+     * @return User
+     */
+    public function addGroup(\Blogger\UserBundle\Entity\Group $groups)
+    {
+        $this->groups[] = $groups;
+    
+        return $this;
+    }
+
+    /**
+     * Remove groups
+     *
+     * @param \Blogger\UserBundle\Entity\Group $groups
+     */
+    public function removeGroup(\Blogger\UserBundle\Entity\Group $groups)
+    {
+        $this->groups->removeElement($groups);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }
