@@ -1,0 +1,13 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Update Blog Post{% endblock %}
+
+{% block body %}
+<h1>Update a blog post</h1>
+<form action="{{ path('blog_post_update', {'id': blog.id, 'slug': blog.slug}) }}" method="post" {{ form_enctype(form) }} class="blogger">
+  {{ form_widget(form) }}
+  <p>
+    <input type="submit" value="Submit"/>
+  </p>
+</form>
+{% endblock %}

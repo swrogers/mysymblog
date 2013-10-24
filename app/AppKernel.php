@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Blogger\BlogBundle\BloggerBlogBundle(),
+            new Blogger\UserBundle\BloggerUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

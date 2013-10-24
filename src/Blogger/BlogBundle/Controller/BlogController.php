@@ -93,7 +93,7 @@ class BlogController extends Controller
    * Display a Blog post for editing
    *
    * @Route("/admin/{id}/{slug}/edit", requirements={"id" = "\d+"}, name="blog_post_edit")
-   * @Template("BloggerBlogBundle:Blog:new.html.twig")
+   * @Template("BloggerBlogBundle:Blog:update.html.twig")
    * @Method("GET")
    */
   public function editAction(Request $request, $id, $slug)
@@ -111,6 +111,7 @@ class BlogController extends Controller
     
     return array(
                  'form' => $form->createView(),
+                 'blog' => $blog,
                  );
               
   }
@@ -120,7 +121,7 @@ class BlogController extends Controller
    *
    * @Route("/admin/{id}/{slug}/update", requirements={"id" = "\d+"}, name="blog_post_update")
    * @Method("POST")
-   * @Template("BloggerBlogBundle:Blog:new.html.twig")
+   * @Template()
    */
   public function updateAction(Request $request, $id, $slug)
   {
