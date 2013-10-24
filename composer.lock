@@ -707,12 +707,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "e96022469595b4def59756f7b6b9ceb78c9f0e66"
+                "reference": "90f5c393b907ca9b46e507def43735de959b77fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/e96022469595b4def59756f7b6b9ceb78c9f0e66",
-                "reference": "e96022469595b4def59756f7b6b9ceb78c9f0e66",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/90f5c393b907ca9b46e507def43735de959b77fc",
+                "reference": "90f5c393b907ca9b46e507def43735de959b77fc",
                 "shasum": ""
             },
             "require": {
@@ -727,6 +727,11 @@
                 "symfony/console": "to run the migration from the console"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL\\Migrations": "lib"
@@ -753,7 +758,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2013-10-03 12:44:16"
+            "time": "2013-10-23 14:44:19"
         },
         {
             "name": "doctrine/orm",
@@ -1579,16 +1584,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.5",
+            "version": "v2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "aa5626cd2a359567c948ebdeeca68d948640302f"
+                "reference": "d0597156c4c03ceca039f6b7770a47397ba295f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/aa5626cd2a359567c948ebdeeca68d948640302f",
-                "reference": "aa5626cd2a359567c948ebdeeca68d948640302f",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/d0597156c4c03ceca039f6b7770a47397ba295f0",
+                "reference": "d0597156c4c03ceca039f6b7770a47397ba295f0",
                 "shasum": ""
             },
             "require": {
@@ -1683,7 +1688,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-09-27 07:31:40"
+            "time": "2013-10-10 13:24:22"
         },
         {
             "name": "twig/extensions",
@@ -1734,16 +1739,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.14.0",
+            "version": "v1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "224fc55635d544a2ec8edb3592be18db5a093f59"
+                "reference": "8873d7593ad7c120004f177c0fd01459b383c9cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/224fc55635d544a2ec8edb3592be18db5a093f59",
-                "reference": "224fc55635d544a2ec8edb3592be18db5a093f59",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8873d7593ad7c120004f177c0fd01459b383c9cb",
+                "reference": "8873d7593ad7c120004f177c0fd01459b383c9cb",
                 "shasum": ""
             },
             "require": {
@@ -1779,7 +1784,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-03 06:41:20"
+            "time": "2013-10-15 19:17:38"
         }
     ],
     "packages-dev": [

@@ -45,6 +45,11 @@ class User extends BaseUser
     */
     protected $groups;
 
+    /**
+     * @ORM\Column(type="string", length="255", unique=true)
+     */
+    protected $email;
+
     public function __construct()
     {
       parent::__construct();
