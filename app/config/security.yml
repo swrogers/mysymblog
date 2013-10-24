@@ -12,7 +12,7 @@ security:
 
     firewalls:
         admin_area:
-                pattern: ^/admin
+                pattern: ^/post/admin
                 http_basic: ~
 
     access_control:

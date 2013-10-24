@@ -81,6 +81,7 @@ class User implements AdvancedUserInterface, \Serializable
       return $this->roles->toArray();
     }
 
+
     /**
      * Erase credentials
      */
@@ -252,5 +253,28 @@ class User implements AdvancedUserInterface, \Serializable
     public function getIsActive()
     {
         return $this->isActive;
+    }
+
+    /**
+     * Add roles
+     *
+     * @param \Blogger\UserBundle\Entity\Role $roles
+     * @return User
+     */
+    public function addRole(\Blogger\UserBundle\Entity\Role $roles)
+    {
+        $this->roles[] = $roles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove roles
+     *
+     * @param \Blogger\UserBundle\Entity\Role $roles
+     */
+    public function removeRole(\Blogger\UserBundle\Entity\Role $roles)
+    {
+        $this->roles->removeElement($roles);
     }
 }
